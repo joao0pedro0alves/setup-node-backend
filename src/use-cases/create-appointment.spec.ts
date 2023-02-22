@@ -1,8 +1,8 @@
-import {describe, expect, it} from 'vitest'
-import {Appointment} from '../models/appointment'
-import {CreateAppointment} from './create-appointment'
-import {getFutureDate} from '../tests/utils/get-future-date'
-import {InMemoryAppointmentsRepository} from '../repositories/in-memory/in-memory-appointment-repository'
+import { describe, expect, it } from 'vitest'
+import { Appointment } from '../models/appointment'
+import { CreateAppointment } from './create-appointment'
+import { getFutureDate } from '../tests/utils/get-future-date'
+import { InMemoryAppointmentsRepository } from '../repositories/in-memory/in-memory-appointment-repository'
 
 describe('Create appointment', () => {
     it('should be able to create an appointment', () => {

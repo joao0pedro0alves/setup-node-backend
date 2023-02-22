@@ -12,7 +12,7 @@ test('create an appointment', () => {
     const appointment = new Appointment({
         customer: 'Jhon Doe',
         startsAt,
-        endsAt
+        endsAt,
     })
 
     expect(appointment).toBeInstanceOf(Appointment)
@@ -27,7 +27,7 @@ test('cannot create an appointment with end date before start date', () => {
         return new Appointment({
             customer: 'Jhon Doe',
             startsAt,
-            endsAt
+            endsAt,
         })
     }).toThrow()
 })
@@ -43,7 +43,7 @@ test('cannot create an appointment with start date before now', () => {
         return new Appointment({
             customer: 'Jhon Doe',
             startsAt,
-            endsAt
+            endsAt,
         })
     }).toThrow()
 })

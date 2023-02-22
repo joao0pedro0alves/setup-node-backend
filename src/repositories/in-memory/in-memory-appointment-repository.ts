@@ -1,7 +1,7 @@
-import { areIntervalsOverlapping } from "date-fns";
+import { areIntervalsOverlapping } from 'date-fns'
 
-import { Appointment } from "../../models/appointment";
-import { AppointmentsRepository } from "../appointment-repository";
+import { Appointment } from '../../models/appointment'
+import { AppointmentsRepository } from '../appointment-repository'
 
 export class InMemoryAppointmentsRepository implements AppointmentsRepository {
     public items: Appointment[] = []
@@ -10,19 +10,22 @@ export class InMemoryAppointmentsRepository implements AppointmentsRepository {
         this.items.push(appointment)
     }
 
-    async findOverlapingAppointment(startsAt: Date, endsAt: Date): Promise<Appointment | null> {
-            const overlappingAppointment = this.items.find(appointment => {
-                return areIntervalsOverlapping(
-                    { start: startsAt, end: endsAt },
-                    { start: appointment.startsAt, end: appointment.endsAt },
-                    { inclusive: true }
-                )
-            })
+    async findOverlapingAppointment(
+        startsAt: Date,
+        endsAt: Date
+    ): Promise<Appointment | null> {
+        const overlappingAppointment = this.items.find((appointment) => {
+            return areIntervalsOverlapping(
+                { start: startsAt, end: endsAt },
+                { start: appointment.startsAt, end: appointment.endsAt },
+                { inclusive: true }
+            )
+        })
 
-            if (!overlappingAppointment) {
-                return null
-            }
+        if (!overlappingAppointment) {
+            return null
+        }
 
-            return overlappingAppointment
+        return overlappingAppointment
     }
 }
