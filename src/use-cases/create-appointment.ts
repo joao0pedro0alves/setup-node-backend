@@ -1,4 +1,4 @@
-import { Appointment } from '../models/appointment'
+import { Appointment } from '../entities/appointment'
 import { AppointmentsRepository } from '../repositories/appointment-repository'
 
 interface CreateAppointmentRequest {

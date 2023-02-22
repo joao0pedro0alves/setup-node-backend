@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { Appointment } from '../models/appointment'
+import { Appointment } from '../entities/appointment'
 import { CreateAppointment } from './create-appointment'
 import { getFutureDate } from '../tests/utils/get-future-date'
 import { InMemoryAppointmentsRepository } from '../repositories/in-memory/in-memory-appointment-repository'
