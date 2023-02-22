@@ -1,6 +1,6 @@
 import { areIntervalsOverlapping } from 'date-fns'
 
-import { Appointment } from '../../models/appointment'
+import { Appointment } from '../../entities/appointment'
 import { AppointmentsRepository } from '../appointment-repository'
 
 export class InMemoryAppointmentsRepository implements AppointmentsRepository {
