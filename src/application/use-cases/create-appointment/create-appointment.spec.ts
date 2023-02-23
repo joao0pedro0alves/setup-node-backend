@@ -3,6 +3,7 @@ import { Appointment } from '../../../domain/entities/appointment';
 import { CreateAppointment } from './create-appointment';
 import { getFutureDate } from '../../../tests/utils/get-future-date';
 import { InMemoryAppointmentsRepository } from '../../../infra/database/repositories/in-memory/in-memory-appointment-repository';
+import { TestMailProvider } from '../../providers/test/mail-provider'
 
 describe('Create appointment', () => {
     it('should be able to create an appointment', () => {
@@ -10,7 +11,8 @@ describe('Create appointment', () => {
         const endsAt = getFutureDate('2022-08-11')
 
         const appointmentsRepository = new InMemoryAppointmentsRepository()
-        const createAppointment = new CreateAppointment(appointmentsRepository)
+        const mailProvider = new TestMailProvider()
+        const createAppointment = new CreateAppointment(appointmentsRepository, mailProvider)
 
         expect(
             createAppointment.execute({
@@ -26,7 +28,8 @@ describe('Create appointment', () => {
         const endsAt = getFutureDate('2022-08-15')
 
         const appointmentsRepository = new InMemoryAppointmentsRepository()
-        const createAppointment = new CreateAppointment(appointmentsRepository)
+        const mailProvider = new TestMailProvider()
+        const createAppointment = new CreateAppointment(appointmentsRepository, mailProvider)
 
         await createAppointment.execute({
             customer: 'Jhon doe',

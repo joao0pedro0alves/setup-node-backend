@@ -1,4 +1,7 @@
 import { app } from "./app";
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 app.listen({
     port: 3333,
