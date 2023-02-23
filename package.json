@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "test": "vitest",
     "test:build": "vitest run",
     "build": "echo \"Build running...\"",
@@ -37,6 +37,7 @@
     "@fastify/cors": "^8.2.0",
     "@prisma/client": "^4.10.1",
     "date-fns": "^2.29.3",
-    "fastify": "^4.13.0"
+    "fastify": "^4.13.0",
+    "zod": "^3.20.6"
   }
 }

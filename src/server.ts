@@ -1,7 +1,7 @@
-import { app } from "./app"
+import { app } from "./app";
 
 app.listen({
-    port: 3333
+    port: 3333,
 }, (error, address) => {
 
     if (error) {
