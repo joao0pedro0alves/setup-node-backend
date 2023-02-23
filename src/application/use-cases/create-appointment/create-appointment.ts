@@ -1,5 +1,5 @@
-import { Appointment } from '../entities/appointment'
-import { AppointmentsRepository } from '../repositories/appointment-repository'
+import { Appointment } from '../../../domain/entities/appointment';
+import { AppointmentsRepository } from '../../../infra/database/repositories/appointment-repository';
 
 interface CreateAppointmentRequest {
     customer: string
@@ -10,13 +10,11 @@ interface CreateAppointmentRequest {
 type CreateAppointmentResponse = Appointment
 
 export class CreateAppointment {
-    constructor(private appointmentsRepository: AppointmentsRepository) {}
+    constructor(
+        private appointmentsRepository: AppointmentsRepository
+    ) {}
 
-    async execute({
-        customer,
-        endsAt,
-        startsAt,
-    }: CreateAppointmentRequest): Promise<CreateAppointmentResponse> {
+    async execute({ customer, endsAt, startsAt }: CreateAppointmentRequest): Promise<CreateAppointmentResponse> {
         const overlappingAppointment =
             await this.appointmentsRepository.findOverlapingAppointment(
                 startsAt,

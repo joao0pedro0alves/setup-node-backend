@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { Appointment } from './appointment'
-import { getFutureDate } from '../tests/utils/get-future-date'
+import { getFutureDate } from '../../tests/utils/get-future-date'
 
 test('create an appointment', () => {
     const startsAt = new Date()
