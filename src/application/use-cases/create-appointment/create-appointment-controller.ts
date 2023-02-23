@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateAppointment } from "../use-cases/create-appointment/create-appointment";
+import { CreateAppointment } from "./create-appointment";
 import z from 'zod';
 
 export class CreateAppointmentController {
