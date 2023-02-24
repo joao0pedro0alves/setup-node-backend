@@ -14,6 +14,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id String @id @default(uuid())
+model Task {
+  id        String  @id
+  title     String
+  completed Boolean
+
+  @@unique([title])
+  @@map("tasks")
 }
