@@ -1,15 +1,16 @@
-import { app } from "./app";
-import dotenv from 'dotenv';
+import { app } from './app';
+import { SERVER_PORT, SERVER_HOST } from './config/app';
 
-dotenv.config()
-
-app.listen({
-    port: 3333,
-}, (error, address) => {
-
-    if (error) {
-        process.exit(1)
-    } else {
-        console.log(`Server is running on ${address}`)
+app.listen(
+    {
+        port: SERVER_PORT,
+        host: SERVER_HOST
+    },
+    (error, address) => {
+        if (error) {
+            process.exit(1);
+        } else {
+            console.log(`Server is running on ${address}`);
+        }
     }
-})
+);
