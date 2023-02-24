@@ -2,12 +2,12 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { routes } from './application/routes/v1/routes';
 
-const app = Fastify()
+const app = Fastify();
 
 app.register(cors, {
-    origin: true
-})
+    origin: true,
+});
 
-app.register(routes, { prefix: '/api/v1'})
+app.register(routes, { prefix: '/api/v1' });
 
-export { app }
+export { app };

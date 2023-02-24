@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "dev": "tsx watch -r dotenv/config src/server.ts",
     "test": "vitest",
     "test:build": "vitest run",
-    "build": "echo \"Build running...\"",
+    "build": "tsup src/server.ts",
     "deploy": "echo \"Deploying new build to cloud server...\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "prepare": "husky install"
@@ -29,6 +30,7 @@
     "prettier": "^2.8.4",
     "prisma": "^4.10.1",
     "prisma-erd-generator": "^1.2.5",
+    "tsup": "^6.6.3",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5",
     "vitest": "^0.28.5"
@@ -36,8 +38,11 @@
   "dependencies": {
     "@fastify/cors": "^8.2.0",
     "@prisma/client": "^4.10.1",
+    "@types/nodemailer": "^6.4.7",
     "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
     "fastify": "^4.13.0",
+    "nodemailer": "^6.9.1",
     "zod": "^3.20.6"
   }
 }
