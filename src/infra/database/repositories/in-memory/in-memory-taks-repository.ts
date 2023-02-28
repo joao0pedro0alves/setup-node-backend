@@ -44,4 +44,8 @@ export class InMemoryTasksRepository implements TasksRepository {
         const task = this.items.find(inMemoryTask => inMemoryTask.id === taskId) ?? null
         return task
     }
+
+    async remove(taskId: string): Promise<void> {
+        this.items = this.items.filter(task => task.id !== taskId)
+    }
 }

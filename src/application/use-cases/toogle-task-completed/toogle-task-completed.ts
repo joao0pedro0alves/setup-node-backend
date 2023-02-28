@@ -14,7 +14,7 @@ export class ToogleTaskCompleted {
         const task = await this.tasksRepository.findTask(taskId);
 
         if (!task) {
-            throw new Error('Task is not found');
+            throw new Error('Task not founded');
         }
 
         const updatedTask = await this.tasksRepository.toogleTaskCompleted(taskId);
