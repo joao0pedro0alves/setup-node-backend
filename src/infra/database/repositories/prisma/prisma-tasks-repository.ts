@@ -17,6 +17,30 @@ export class PrismaTasksRepository implements TasksRepository {
         }
     }
 
+    async toogleTaskCompleted(taskId: string): Promise<Task | null> {
+        const task = await this.findTask(taskId)
+        
+        if (task) {
+            const updatedTask = await prisma.task.update({
+                where: {
+                    id: taskId
+                },
+                data: {
+                    completed: !task.completed
+                }
+            })
+
+            return new Task({
+                id: updatedTask.id,
+                completed: updatedTask.completed,
+                title: updatedTask.title
+            })
+
+        } else {
+            return null
+        }
+    }
+
     async findTaskWithSameTitle(title: string): Promise<Task | null> {
         const sameTitleTask = await prisma.task.findUnique({
             where: {
@@ -29,6 +53,24 @@ export class PrismaTasksRepository implements TasksRepository {
                 id: sameTitleTask.id,
                 completed: sameTitleTask.completed,
                 title: sameTitleTask.title
+            })
+        } else {
+            return null
+        }
+    }
+
+    async findTask(taskId: string): Promise<Task | null> {
+        const task = await prisma.task.findUnique({
+            where: {
+                id: taskId
+            }
+        })
+
+        if (task) {
+            return new Task({
+                id: task.id,
+                completed: task.completed,
+                title: task.title
             })
         } else {
             return null

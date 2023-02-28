@@ -16,9 +16,7 @@ export class CreateTask {
         const taskWithSameTitle = await this.tasksRepository.findTaskWithSameTitle(title)
 
         if (taskWithSameTitle) {
-            throw new Error(
-                'Another task use this title'
-            )
+            throw new Error('Another task use this title')
         }
 
         const task = new Task({
