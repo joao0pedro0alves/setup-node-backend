@@ -11,7 +11,18 @@
     "build": "tsup src/server.ts",
     "deploy": "echo \"Deploying new build to cloud server...\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commitmsg": "node scripts/commit-msg.js"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run commitmsg"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "keywords": [],
   "author": "",
@@ -21,6 +32,8 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@mermaid-js/mermaid-cli": "^9.3.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.34.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-import": "^2.27.5",
